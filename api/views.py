@@ -2,12 +2,11 @@ from django.shortcuts import render
 from .forms import BBForm
 from xbbg import blp
 
-
 def BloombergAPI(request):
     if request.method == 'GET':
         form = BBForm()
         context = {'form': form}
-        return render(request, 'api/bloomberg_api.html', context)
+        return render(request, 'api/bloomberg_api.html', {'form':form})
 
     elif request.method == "POST":
         form = BBForm(request.POST)
